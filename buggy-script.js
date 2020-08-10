@@ -21,11 +21,12 @@ linesInSource.forEach(line => {
   const [ filename, ...contentArr ] = line.split(' ');
   // construct the full path for the file to create
   const newFilePath = path.join(__dirname, target, filename);
+  const contentString = contentArr.join(' ');
 
   // write the file and it's contents
   fs.writeFileSync(
     newFilePath,
-    contentArr,
+    contentString,
     { flag: 'w+', encoding: 'utf-8' }
   );
 });
